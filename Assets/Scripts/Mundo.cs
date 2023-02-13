@@ -17,6 +17,6 @@ public class Mundo : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Planeta.transform.Rotate(new Vector3(0,-velocidadRotacion,0));
+        Planeta.transform.Rotate(new Vector3(0,velocidadRotacion,0));
     }
 }

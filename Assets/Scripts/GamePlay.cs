@@ -25,7 +25,6 @@ private void Awake() {
         Debug.Log("Nombre: " + other);
         Particulas.Play();
     }
-
     private void OnTriggerEnter(Collider other)
     {
         vidaActual = vidaActual - 25f;
@@ -35,7 +34,6 @@ private void Awake() {
 
     void Update()
     {
-
         BarraVida.fillAmount = vidaActual / vidaMax;
         Debug.Log("Vida: " + vidaActual / vidaMax);
         if (vidaActual <= 0)
