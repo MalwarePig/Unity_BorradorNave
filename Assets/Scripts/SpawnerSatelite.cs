@@ -12,12 +12,16 @@ public class SpawnerSatelite : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log("Final: " + other.name);
+        float EjeX = Random.Range(0.0f, 6f);//Para tener diferentes alturas
         foreach (GameObject prop in props)
         {
             if (prop.name == other.name)
             {
-                prop.transform.position = new Vector3(Inicio.position.x, prop.transform.position.y, prop.transform.position.z); 
+                prop.transform.position = new Vector3(Inicio.position.x + EjeX, prop.transform.position.y, prop.transform.position.z); 
             }
         }
     }
 }
+
+
+

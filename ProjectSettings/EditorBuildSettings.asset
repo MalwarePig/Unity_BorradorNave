@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
+    path: Assets/Scenes/PlanetaRojo.unity
+    guid: 16629432b99eeb64d906b0e22081d941
+  - enabled: 1
+    path: Assets/Scenes/PlanetaVerde.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   m_configObjects: {}
