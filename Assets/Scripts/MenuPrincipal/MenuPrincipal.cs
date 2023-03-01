@@ -14,6 +14,8 @@ public class MenuPrincipal : MonoBehaviour
     private float tiempoRecord = 0f;
     private float rotacionActual = 0f;
 
+    private float[] Angulos = { 0.0f, 90.0f, 180.0f, 270.0f };
+
     [SerializeField]
     Transform cubeMenu;
 
@@ -41,11 +43,10 @@ public class MenuPrincipal : MonoBehaviour
 
     public void RightPlayer()
     {
-        if (naveActual < 5)
+        if (naveActual < 4)
         {
-            rotacionActual = rotacionActual + 90f;
-            Rotar(rotacionActual);
             naveActual = naveActual + 1;
+            Rotar("sumar");
             PlayerPrefs.SetInt("NaveActual", naveActual);
             Debug.Log("nave Actual " + naveActual);
         }
@@ -55,9 +56,8 @@ public class MenuPrincipal : MonoBehaviour
     {
         if (naveActual > 1)
         {
-            //rotacionActual = rotacionActual - 90f;
-            //Rotar(rotacionActual);
             naveActual = naveActual - 1;
+            Rotar("restar");
             PlayerPrefs.SetInt("NaveActual", naveActual);
             Debug.Log("nave Actual " + naveActual);
         }
@@ -76,9 +76,13 @@ public class MenuPrincipal : MonoBehaviour
         record.text = minutos + ":" + segundos;
     }
 
-    public void Rotar(float parametro)
+    public void Rotar(string parametro)
     {
-        Debug.Log("parametro " + parametro);
-        cubeMenu.transform.Rotate(0.0f, parametro, 0.0f); 
+        if (parametro == "sumar")
+        {
+            cubeMenu.transform.Rotate(0.0f, 90, 0.0f);
+        }else{
+            cubeMenu.transform.Rotate(0.0f, -90, 0.0f);
+        } 
     }
 }
