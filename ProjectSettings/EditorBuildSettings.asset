@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Menu.unity
+    guid: 6d8264cfd7adb01439b5ae08941897e9
+  - enabled: 1
     path: Assets/Scenes/PlanetaRojo.unity
     guid: 16629432b99eeb64d906b0e22081d941
   - enabled: 1
