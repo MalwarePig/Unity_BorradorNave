@@ -73,7 +73,7 @@ public class GamePlay : MonoBehaviour
 
     void EstatusVida()
     {
-        //BarraVida.fillAmount = vidaActual / vidaMax;
+        BarraVida.fillAmount = vidaActual / vidaMax;
         // Debug.Log("Vida: " + vidaActual / vidaMax);
         if (vidaActual <= 0 && NaveDestruida == false)
         {
