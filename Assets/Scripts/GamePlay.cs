@@ -19,10 +19,16 @@ public class GamePlay : MonoBehaviour
     [SerializeField] public ParticleSystem Particulas_Destruccion;
     [SerializeField] private AudioClip audio_Choque;
     [SerializeField] private AudioClip audio_Destruccion;
+
     private bool NaveDestruida = false;
 
     private GameObject[] Hijos;
     AudioSource audioSource;
+
+    
+    /*Menu continue*/ 
+    private bool isShowing = false;//Panel visible?
+    public GameObject menuContinue; // Assign in inspector panel
 
     private void Awake()
     {
@@ -50,7 +56,8 @@ public class GamePlay : MonoBehaviour
             EstatusVida();
         }
 
-    }
+    } 
+
     private void OnTriggerEnter(Collider other)
     {
         vidaActual = vidaActual - 25f;
@@ -62,14 +69,10 @@ public class GamePlay : MonoBehaviour
         if (!audioSource.isPlaying)
         {
             audioSource.PlayOneShot(audio_Choque, 1F);
-            EstatusVida();
+            EstatusVida(); 
         }
     }
-
-    void Update()
-    {
-
-    }
+ 
 
     void EstatusVida()
     {
@@ -94,11 +97,16 @@ public class GamePlay : MonoBehaviour
             //audioSource.mute = true;
 
             Destroy(gameObject, 2f);
-
-            
+            MostrarMenuContinue();
 
             //  SceneManager.LoadScene("SampleScene");
         }
+    }
+
+    void MostrarMenuContinue()//Muestra panel de menu continue
+    {
+        isShowing = !isShowing;
+        menuContinue.SetActive(isShowing);
     }
  
 }

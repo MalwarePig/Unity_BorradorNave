@@ -13,6 +13,7 @@ public class MenuPrincipal : MonoBehaviour
     private float tiempo = 0f;
     private float tiempoRecord = 0f;
     private float rotacionActual = 0f;
+    private int PlayerSelect = 0;
 
     private float[] Angulos = { 0.0f, 90.0f, 180.0f, 270.0f };
 
@@ -37,7 +38,8 @@ public class MenuPrincipal : MonoBehaviour
 
     public void LoadLevel()
     {
-        Debug.Log("Iniciar Nivel");
+        PlayerSelect = naveActual - 1;
+        PlayerPrefs.SetInt("NaveActual", PlayerSelect); 
         SceneManager.LoadScene("PlanetaRojo");
     }
 
@@ -45,9 +47,8 @@ public class MenuPrincipal : MonoBehaviour
     {
         if (naveActual < 4)
         {
-            naveActual = naveActual + 1;
-            Rotar("sumar");
-            PlayerPrefs.SetInt("NaveActual", naveActual);
+            naveActual = naveActual + 1; 
+            Rotar("sumar"); 
             Debug.Log("nave Actual " + naveActual);
         }
     }
@@ -57,8 +58,7 @@ public class MenuPrincipal : MonoBehaviour
         if (naveActual > 1)
         {
             naveActual = naveActual - 1;
-            Rotar("restar");
-            PlayerPrefs.SetInt("NaveActual", naveActual);
+            Rotar("restar"); 
             Debug.Log("nave Actual " + naveActual);
         }
     }
@@ -81,8 +81,10 @@ public class MenuPrincipal : MonoBehaviour
         if (parametro == "sumar")
         {
             cubeMenu.transform.Rotate(0.0f, 90, 0.0f);
-        }else{
+        }
+        else
+        {
             cubeMenu.transform.Rotate(0.0f, -90, 0.0f);
-        } 
+        }
     }
 }
