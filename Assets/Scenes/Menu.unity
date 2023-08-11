@@ -283,6 +283,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 229537362}
   m_CullTransparentMesh: 1
+--- !u!198 &327187084 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 344025793022142516, guid: 8c24bbf3034e70e4e89f4f390e6b21cb,
+    type: 3}
+  m_PrefabInstance: {fileID: 8218498138395484902}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &391140205 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 1695267437644292756, guid: a98b142470cb3a14abffad442acb2e4f,
+    type: 3}
+  m_PrefabInstance: {fileID: 2017605770689209825}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &400223337
 GameObject:
   m_ObjectHideFlags: 0
@@ -1595,6 +1607,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!198 &1559975540 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 7450061086236594648, guid: bcef17e82820d154bb8cb26f76e16949,
+    type: 3}
+  m_PrefabInstance: {fileID: 8391778572049084106}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1584649794
 GameObject:
   m_ObjectHideFlags: 0
@@ -1903,6 +1921,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1968490215}
   m_CullTransparentMesh: 1
+--- !u!198 &1995750604 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 1650552432288791069, guid: 408da52811f377948a57f3ec55dbbcb2,
+    type: 3}
+  m_PrefabInstance: {fileID: 3633267755835614729}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2048970301
 GameObject:
   m_ObjectHideFlags: 0
@@ -6966,6 +6990,11 @@ PrefabInstance:
       objectReference: {fileID: 1467507994}
     - target: {fileID: 319495516897567494, guid: a98b142470cb3a14abffad442acb2e4f,
         type: 3}
+      propertyPath: ParticulaEstabilizador
+      value: 
+      objectReference: {fileID: 391140205}
+    - target: {fileID: 319495516897567494, guid: a98b142470cb3a14abffad442acb2e4f,
+        type: 3}
       propertyPath: Particulas_Destruccion
       value: 
       objectReference: {fileID: 8391778572049084107}
@@ -7150,6 +7179,11 @@ PrefabInstance:
       objectReference: {fileID: 2119833671}
     - target: {fileID: 4915420411072701625, guid: 408da52811f377948a57f3ec55dbbcb2,
         type: 3}
+      propertyPath: ParticulaEstabilizador
+      value: 
+      objectReference: {fileID: 1995750604}
+    - target: {fileID: 4915420411072701625, guid: 408da52811f377948a57f3ec55dbbcb2,
+        type: 3}
       propertyPath: Particulas_Destruccion
       value: 
       objectReference: {fileID: 8391778572049084107}
@@ -7262,6 +7296,11 @@ PrefabInstance:
       objectReference: {fileID: 1356884626}
     - target: {fileID: 8847338050605493960, guid: 8c24bbf3034e70e4e89f4f390e6b21cb,
         type: 3}
+      propertyPath: ParticulaEstabilizador
+      value: 
+      objectReference: {fileID: 327187084}
+    - target: {fileID: 8847338050605493960, guid: 8c24bbf3034e70e4e89f4f390e6b21cb,
+        type: 3}
       propertyPath: Particulas_Destruccion
       value: 
       objectReference: {fileID: 8391778572049084107}
@@ -7288,6 +7327,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1530629529}
     m_Modifications:
+    - target: {fileID: 7450061086309281535, guid: bcef17e82820d154bb8cb26f76e16949,
+        type: 3}
+      propertyPath: ParticulaEstabilizador
+      value: 
+      objectReference: {fileID: 1559975540}
     - target: {fileID: 8358451502702305669, guid: bcef17e82820d154bb8cb26f76e16949,
         type: 3}
       propertyPath: m_RootOrder

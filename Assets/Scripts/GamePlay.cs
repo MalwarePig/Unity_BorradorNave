@@ -4,36 +4,52 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-
 public class GamePlay : MonoBehaviour
 {
+    [SerializeField]
+    public Image BarraVida;
 
-    [SerializeField] public Image BarraVida;
+    [SerializeField]
+    float vidaActual = 100f;
 
-    [SerializeField] float vidaActual = 100f;
-    [SerializeField] float vidaMax = 100f;
-    [SerializeField] float vidaMin = 0f;
-    [SerializeField] public ParticleSystem ParticulasChoque;
+    [SerializeField]
+    float vidaMax = 100f;
 
-    [SerializeField] public ParticleSystem ParticulasMotor;
-    [SerializeField] public ParticleSystem Particulas_Destruccion;
-    [SerializeField] private AudioClip audio_Choque;
-    [SerializeField] private AudioClip audio_Destruccion;
+    [SerializeField]
+    float vidaMin = 0f;
+
+    [SerializeField]
+    public ParticleSystem ParticulasChoque;
+
+    [SerializeField]
+    public ParticleSystem ParticulasMotor;
+
+    [SerializeField]
+    public ParticleSystem Particulas_Destruccion;
+
+    [SerializeField]
+    public ParticleSystem ParticulaEstabilizador;
+
+    [SerializeField]
+    private AudioClip audio_Choque;
+
+    [SerializeField]
+    private AudioClip audio_Destruccion;
 
     private bool NaveDestruida = false;
 
     private GameObject[] Hijos;
     AudioSource audioSource;
 
-    
-    /*Menu continue*/ 
-    private bool isShowing = false;//Panel visible?
+    /*Menu continue*/
+    private bool isShowing = false; //Panel visible?
     public GameObject menuContinue; // Assign in inspector panel
 
     private void Awake()
     {
         ParticulasChoque.Stop();
         Particulas_Destruccion.Stop();
+        ParticulaEstabilizador.Stop();
     }
 
     private void Start()
@@ -55,8 +71,7 @@ public class GamePlay : MonoBehaviour
             audioSource.PlayOneShot(audio_Choque, 1F);
             EstatusVida();
         }
-
-    } 
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -69,10 +84,9 @@ public class GamePlay : MonoBehaviour
         if (!audioSource.isPlaying)
         {
             audioSource.PlayOneShot(audio_Choque, 1F);
-            EstatusVida(); 
+            EstatusVida();
         }
     }
- 
 
     void EstatusVida()
     {
@@ -82,14 +96,14 @@ public class GamePlay : MonoBehaviour
         {
             NaveDestruida = true;
             audioSource.PlayOneShot(audio_Destruccion, .5F);
-            Particulas_Destruccion.Play();//Explosion
+            Particulas_Destruccion.Play(); //Explosion
 
-            this.GetComponent<MeshRenderer>().enabled = false;//Desaparece la nave
-            ParticulasChoque.Stop();//Detiene particulas de choque  
-            ParticulasMotor.Stop();//Detiene particulas de motor 
+            this.GetComponent<MeshRenderer>().enabled = false; //Desaparece la nave
+            ParticulasChoque.Stop(); //Detiene particulas de choque
+            ParticulasMotor.Stop(); //Detiene particulas de motor
 
             GameObject originalGameObject = GameObject.Find("Punta");
-            originalGameObject.GetComponent<MeshRenderer>().enabled = false;//Oculta la punta de nave
+            originalGameObject.GetComponent<MeshRenderer>().enabled = false; //Oculta la punta de nave
 
             GameObject Controlador = GameObject.Find("Controlador");
             Controlador.GetComponent<ControladorNave>().enabled = false;
@@ -103,10 +117,24 @@ public class GamePlay : MonoBehaviour
         }
     }
 
-    void MostrarMenuContinue()//Muestra panel de menu continue
+    void MostrarMenuContinue() //Muestra panel de menu continue
     {
         isShowing = !isShowing;
         menuContinue.SetActive(isShowing);
     }
- 
+
+    void Update()
+    {
+        float inputSpaces = 0;
+        inputSpaces = Input.GetAxis("Jump");
+        if (inputSpaces == 1 || Input.touchCount > 0)
+        {
+            ParticulaEstabilizador.Play(); //Activar particula de propulción
+        }
+        else
+        {
+            //ParticulaEstabilizador.Stop();
+            audioSource.Stop();
+        }
+    }
 }

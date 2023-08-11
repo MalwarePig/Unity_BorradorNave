@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 882261753054907032}
   - component: {fileID: 5731723667868291758}
   - component: {fileID: 319495516897567494}
-  - component: {fileID: 5691930993937145351}
   m_Layer: 0
   m_Name: cohete_Laser
   m_TagString: Untagged
@@ -39,7 +38,7 @@ Transform:
   - {fileID: 1695267437644292754}
   - {fileID: 1695267438770661643}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -15, y: 90, z: 0}
 --- !u!33 &3160008694315400786
 MeshFilter:
@@ -210,28 +209,6 @@ MonoBehaviour:
   Particulas_Destruccion: {fileID: 0}
   audio_Choque: {fileID: 8300000, guid: 1a654660fab20ce43a8112f605d1fef4, type: 3}
   audio_Destruccion: {fileID: 8300000, guid: 06c484f1548057b4c9711fca7c4bffb7, type: 3}
-  menuContinue: {fileID: 0}
---- !u!114 &5691930993937145351
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1674934526522944333}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 693beaa9a7efed24cb8f80b02fb70552, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  BarraVida: {fileID: 0}
-  vidaActual: 100
-  vidaMax: 100
-  vidaMin: 0
-  ParticulasChoque: {fileID: 0}
-  ParticulasMotor: {fileID: 0}
-  Particulas_Destruccion: {fileID: 0}
-  audio_Choque: {fileID: 0}
-  audio_Destruccion: {fileID: 0}
   menuContinue: {fileID: 0}
 --- !u!1 &1695267436997702979
 GameObject:

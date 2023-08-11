@@ -7,7 +7,7 @@ public class ControladorNave : MonoBehaviour
 {
     [SerializeField]
     private GameObject[] Nave;
-    private int NaveActual = 0;
+    private int NaveActual = 2;
 
     [SerializeField]
     private float impulso = 0.05f;
@@ -19,9 +19,7 @@ public class ControladorNave : MonoBehaviour
     [SerializeField]
     private GameObject techo; //LimiteSuperior
 
-    [SerializeField]
-    public ParticleSystem ParticulaEstabilizador;
-
+ 
     private Quaternion originalRotation;
 
     private Vector3 posicionCorrecta;
@@ -35,11 +33,13 @@ public class ControladorNave : MonoBehaviour
     {
         NaveActual = PlayerPrefs.GetInt("NaveActual");
 
+        Nave[NaveActual].SetActive(true);
+
+
         Debug.Log("NaVe Actual gameplay: " + NaveActual);
         originalRotation = Nave[NaveActual].transform.rotation; //Mantiene la rotacion original
         posicionCorrecta = Nave[NaveActual].transform.position; //Mantiene la posicion original
-
-        ParticulaEstabilizador.Stop();
+ 
     }
 
     private void Start()
@@ -48,7 +48,7 @@ public class ControladorNave : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         float inputSpaces = 0;
         inputSpaces = Input.GetAxis("Jump");
@@ -63,9 +63,7 @@ public class ControladorNave : MonoBehaviour
             if (!audioSource.isPlaying)
             {
                 audioSource.PlayOneShot(audio_Estabilizador, 0.1F); //Sonido de estabilizador
-            }
-
-            ParticulaEstabilizador.Play(); //Activar particula de propulción
+            } 
         }
         else
         {
