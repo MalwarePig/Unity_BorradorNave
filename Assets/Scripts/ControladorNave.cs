@@ -7,7 +7,7 @@ public class ControladorNave : MonoBehaviour
 {
     [SerializeField]
     private GameObject[] Nave;
-    private int NaveActual = 2;
+    private int NaveActual = 3;
 
     [SerializeField]
     private float impulso = 0.05f;
